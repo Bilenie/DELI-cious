@@ -139,7 +139,7 @@ public class Sandwich implements OrderItem{
         if(!cheeses.isEmpty()) {
             summary.append("\nCheeses: ");
             for (Cheese c : cheeses)
-                summary.append(c.getType() + ", " + "Is Extra => "+ c.isExtra());
+                summary.append(c.getType() + ", " + "Is Extra => "+ " " + c.isExtra());
         }
 
         // List all regular  toppings
