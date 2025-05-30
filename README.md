@@ -49,24 +49,48 @@ Add sauces (comma-separated), add sides (comma-separated), The sandwich will be 
 ## Screenshots
 (Optional: Add screenshots or GIFs here if you have them)
 ### Home Screen
-
+![Home Screen](Resources/videos_gif/homescreen-ezgif.com-video-to-gif-converter.mp4)
 
 ### Order Screen
-  *Add Sandwich 
 
-  *Add Drinks
+  *Add Drinks/*Add Chips
 
-  *Add Chips
+![Order Drink,Checkout and Chips](src/main/Resources/videos_gif/addChipsDrinkCheckout-ezgif.com-video-to-gif-converter.gif)
+
+  *Add Sauce
+
+![Add Sauce](src/main/Resources/videos_gif/addSandwich_sauce-ezgif.com-video-to-gif-converter.mp4)
+
+  
+  *Add Meat
+
+![Add Meat](src/main/Resources/videos_gif/addSandwich_meat-ezgif.com-video-to-gif-converter.mp4)
+
+  *Add Cheese
+
+![Add Cheese](src/main/Resources/videos_gif/addSandwich_cheese-ezgif.com-animated-gif-maker.gif)
 
   *Checkout
 
+![Add Side ](src/main/Resources/videos_gif/addSandwich_side-ezgif.com-video-to-gif-converter.mp4)
 
-  Cancel Order
 
+  *Cancel Order
+
+![Cancel Order](src/main/Resources/videos_gif/orderCancel-ezgif.com-video-to-gif-converter.mp4)
+
+*Add Sandwich
+
+![Topping Reg](src/main/Resources/videos_gif/addSandwich_regutopping-ezgif.com-video-to-gif-converter.mp4)
+
+  *Diagrams
   
+![Diagram1](src/main/Resources/images/2025-05-30T03_07_05.png)
 
-![Console Flow](src/main/resources/images/console_flow.png)
-![Sandwich Summary](src/main/resources/images/sandwich_summary.png)
+![Diagram2](src/main/Resources/images/2025-05-30T02_35_34.png)
+
+![Diagram3](src/main/Resources/images/2025-05-30T02_53_21.png)
+
 
 ## Console Flow
 
