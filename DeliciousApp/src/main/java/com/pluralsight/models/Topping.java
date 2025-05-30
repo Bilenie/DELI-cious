@@ -49,6 +49,8 @@ public class Topping {
             System.out.println("You choose regular! " + topping.getType() + "topping no charge");
         }
 
+        //String.format("%-12s | %-12s | %-18s | %-18s | %18.2f, %s", date.toString(), time.toString(), description, vendor, amount, type);
+
     }
 }
 
