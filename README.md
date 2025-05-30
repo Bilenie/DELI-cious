@@ -69,8 +69,6 @@ Add sauces (comma-separated), add sides (comma-separated), The sandwich will be 
 
 ![Diagram1](Resources/images/reduce%20diag1.png)
 
-![Diagram2](Resources/images/reduced%20white.png)
-
 ![Diagram3](Resources/images/tree.png)
 
 ![Diagram 4](Resources/images/tree1.png)
