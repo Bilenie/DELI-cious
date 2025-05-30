@@ -48,6 +48,9 @@ Add sauces (comma-separated), add sides (comma-separated), The sandwich will be 
 
 ## Screenshots
 (Optional: Add screenshots or GIFs here if you have them)
+  *Add Cheese DEMO
+![addSandwich_cheese_reduced.gif](Resources/videos_gif/addSandwich_cheese_reduced.gif)
+
 
   *Diagrams
 
