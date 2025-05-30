@@ -47,49 +47,30 @@ java YourMainClass
 Add sauces (comma-separated), add sides (comma-separated), The sandwich will be constructed with your selections and ready to use in your program.
 
 ## Screenshots
-(Optional: Add screenshots or GIFs here if you have them)
-### Home Screen
-![Home Screen](Resources/videos_gif/homescreen-ezgif.com-video-to-gif-converter.mp4)
 
-### Order Screen
+  *Home Screen/Order Screen
 
-  *Add Drinks/*Add Chips
+![home_order_screen reduce.gif](Resources/videos_gif/home_order_screen%20reduce.gif)
 
-![Order Drink,Checkout and Chips](src/main/Resources/videos_gif/addChipsDrinkCheckout-ezgif.com-video-to-gif-converter.gif)
+  *Add Chips/Drink/CheckOut
 
-  *Add Sauce
+![addChipsDrinkCheckout_reduced.gif](Resources/videos_gif/addChipsDrinkCheckout_reduced.gif)
 
-![Add Sauce](src/main/Resources/videos_gif/addSandwich_sauce-ezgif.com-video-to-gif-converter.mp4)
+  *Add Cheese 
 
-  
-  *Add Meat
+![addSandwich_cheese](Resources/videos_gif/addSandwich_cheese_reduced.gif)
 
-![Add Meat](src/main/Resources/videos_gif/addSandwich_meat-ezgif.com-video-to-gif-converter.mp4)
+  *AddTopping
 
-  *Add Cheese
+![addSandwich_regutopping](Resources/videos_gif/addSandwich_regutopping-reduce.gif)
 
-![Add Cheese](src/main/Resources/videos_gif/addSandwich_cheese-ezgif.com-animated-gif-maker.gif)
-
-  *Checkout
-
-![Add Side ](src/main/Resources/videos_gif/addSandwich_side-ezgif.com-video-to-gif-converter.mp4)
-
-
-  *Cancel Order
-
-![Cancel Order](src/main/Resources/videos_gif/orderCancel-ezgif.com-video-to-gif-converter.mp4)
-
-*Add Sandwich
-
-![Topping Reg](src/main/Resources/videos_gif/addSandwich_regutopping-ezgif.com-video-to-gif-converter.mp4)
 
   *Diagrams
-  
-![Diagram1](src/main/Resources/images/2025-05-30T03_07_05.png)
 
-![Diagram2](src/main/Resources/images/2025-05-30T02_35_34.png)
+![Diagram1](Resources/images/reduce%20diag1.png)
 
-![Diagram3](src/main/Resources/images/2025-05-30T02_53_21.png)
+![Diagram3](Resources/images/tree.png)
+
 
 
 ## Console Flow
