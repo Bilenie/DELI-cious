@@ -35,31 +35,31 @@ public class UiHelper {
         scanner.nextLine();
     }
 
-   public static boolean confirmStep(Scanner scanner, Sandwich sandwich) {
+    public static boolean confirmStep(Scanner scanner, Sandwich sandwich) {
 
         // Print the current summary of the sandwich (bread, meat, cheese, etc.)
         System.out.println("\n" + sandwich.getSummary());
 
         // Ask the user if they like what they see.
-       System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-       System.out.print("Is this correct? Press \"Y\" to continue or anything else to cancel! ");
-       System.out.println("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.print("Is this correct? Press \"Y\" to continue or anything else to cancel! ");
+        System.out.println("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
 
-       // Use the Scanner to read what the user types.
+        // Use the Scanner to read what the user types.
         String input = scanner.nextLine();
-       // Check if the user typed "Y" (yes)
-       if (input.equalsIgnoreCase("Y")) {
-           return true; // They confirmed, continue with the order
-       } else {
-           // They typed something else — cancel it
+        // Check if the user typed "Y" (yes)
+        if (input.equalsIgnoreCase("Y")) {
+            return true; // They confirmed, continue with the order
+        } else {
+            // They typed something else — cancel it
 
-           System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-           System.out.println(       "Order canceled.");
-           System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+            System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+            System.out.println("Order canceled.");
+            System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 
-           return false;
-       }
+            return false;
+        }
         //if (!confirmStep(myScanner, sandwich)) return null;
     }
 
@@ -93,7 +93,7 @@ public class UiHelper {
         return meats;
     }
 
-   // Waits for a specific time in milliseconds (like 2000 ms = 2 seconds).Then continues automatically.
+    // Waits for a specific time in milliseconds (like 2000 ms = 2 seconds).Then continues automatically.
     public void pauseBeforeContinuing(int milliseconds) {
         try {
             Thread.sleep(milliseconds);
@@ -101,4 +101,5 @@ public class UiHelper {
             System.out.println("Pause interrupted.");
         }
 
+    }
 }
