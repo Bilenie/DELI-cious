@@ -9,14 +9,13 @@ public class SandwichShopApp {
         //Runs/Fire our app by asking and displaying the menu Home screen that asks what you want to do?
 
         System.out.println( "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        System.out.println("            BILENIE SANDWICH SHOP");
+        System.out.println("            BILENIE SANDWICH SHOP"
         System.out.println( "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
         showLoadingSpinner(1000);
 
         UserInterface ui = new UserInterface();
         ui.homeScreen();
-
 
 
     }
