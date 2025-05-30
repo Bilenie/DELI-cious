@@ -71,9 +71,6 @@ Add sauces (comma-separated), add sides (comma-separated), The sandwich will be 
 
 ![Diagram3](Resources/images/tree.png)
 
-![Diagram 4](Resources/images/tree1.png)
-
-![Diagram 5](Resources/images/tree2.png)
 
 
 ## Console Flow
