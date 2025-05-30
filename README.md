@@ -48,11 +48,21 @@ Add sauces (comma-separated), add sides (comma-separated), The sandwich will be 
 
 ## Screenshots
 
-  *Home Screen
-![homescreen](Resources/videos_gif/homescreen%20reduce.gif)
+  *Home Screen/Order Screen
 
-  *Add Cheese DEMO
+![home_order_screen reduce.gif](Resources/videos_gif/home_order_screen%20reduce.gif)
+
+  *Add Chips/Drink/CheckOut
+
+![addChipsDrinkCheckout_reduced.gif](Resources/videos_gif/addChipsDrinkCheckout_reduced.gif)
+
+  *Add Cheese 
+
 ![addSandwich_cheese](Resources/videos_gif/addSandwich_cheese_reduced.gif)
+
+  *AddTopping
+
+![addSandwich_regutopping](Resources/videos_gif/addSandwich_regutopping-reduce.gif)
 
 
   *Diagrams
