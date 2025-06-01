@@ -93,6 +93,7 @@ public class UiHelper {
         return meats;
     }
 
+<<<<<<< HEAD
     // Waits for a specific time in milliseconds (like 2000 ms = 2 seconds).Then continues automatically.
     public static void pauseBeforeContinuing(int milliseconds) {
         try {
@@ -102,4 +103,45 @@ public class UiHelper {
         }
 
     }
+=======
+    public static String askSize(Scanner scanner) {
+        String size;
+        while (true) {
+            System.out.print("Enter the size you want (4/8/12):\n ");
+            size = scanner.nextLine().trim();
+            if (size.matches("4|8|12")) return size;
+
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            System.out.println("Invalid size. Try again.\n");
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        }
+    }
+
+    public static String[] askType(Scanner scanner, String category, String[] validOptions) {
+        String[] inputTypes;
+        while (true) {
+            System.out.printf("Enter %s - (%s) comma-separated:\n ", category, String.join(", ", validOptions));
+            String input = scanner.nextLine().trim().toLowerCase();
+            inputTypes = input.split(",");
+            boolean allValid = true;
+
+            for (String t : inputTypes) {
+                if (!t.trim().matches("(?i)" + String.join("|", validOptions))) {
+                    System.out.printf("Invalid %s: '%s'. Try again.\n", category, t.trim());
+                    allValid = false;
+                    break;
+                }
+            }
+
+            if (allValid) return inputTypes;
+        }
+    }
+
+    public static boolean askExtra(Scanner scanner, String category) {
+        System.out.printf("Do you want extra %s? (Y/N):\n ", category);
+        String input = scanner.nextLine().trim();
+        return input.equalsIgnoreCase("Y");
+    }
+
+>>>>>>> 4d49858daca91eaf88be450601cdab8572e05755
 }
