@@ -35,35 +35,35 @@ public class UiHelper {
         scanner.nextLine();
     }
 
-   public static boolean confirmStep(Scanner scanner, Sandwich sandwich) {
+    public static boolean confirmStep(Scanner scanner, Sandwich sandwich) {
 
         // Print the current summary of the sandwich (bread, meat, cheese, etc.)
         System.out.println("\n" + sandwich.getSummary());
 
         // Ask the user if they like what they see.
-       System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-       System.out.print("Is this correct? Press \"Y\" to continue or anything else to cancel! ");
-       System.out.println("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.print("Is this correct? Press \"Y\" to continue or anything else to cancel! ");
+        System.out.println("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
 
-       // Use the Scanner to read what the user types.
+        // Use the Scanner to read what the user types.
         String input = scanner.nextLine();
-       // Check if the user typed "Y" (yes)
-       if (input.equalsIgnoreCase("Y")) {
-           return true; // They confirmed, continue with the order
-       } else {
-           // They typed something else — cancel it
+        // Check if the user typed "Y" (yes)
+        if (input.equalsIgnoreCase("Y")) {
+            return true; // They confirmed, continue with the order
+        } else {
+            // They typed something else — cancel it
 
-           System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-           System.out.println(       "Order canceled.");
-           System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+            System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+            System.out.println("Order canceled.");
+            System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 
-           return false;
-       }
+            return false;
+        }
         //if (!confirmStep(myScanner, sandwich)) return null;
     }
 
-    public static String[] getValid(Scanner myScanner) {
+    public static String[] getValidMeat(Scanner myScanner) {
         String[] meats;
         while (true) {
             showLoadingSpinner(1000);
@@ -91,6 +91,43 @@ public class UiHelper {
         }
 
         return meats;
+    }
+
+    public static String[] getValidCheese(Scanner myScanner) {
+        String[] cheeses;
+        while (true) {
+            System.out.print("Enter Cheese - American, Provolone, Cheddar, Swiss (comma-separated): \n");
+            String cheeseInput = myScanner.nextLine().trim();
+            pauseBeforeContinuing(1000);
+
+            cheeses = cheeseInput.split(",");
+            boolean allValid = true;
+
+            for (String cheese : cheeses) {
+                String c = cheese.trim().toLowerCase();
+                if (!c.matches("(?i)american|provolone|cheddar|swiss")) {
+                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    System.out.println("Invalid Cheese: '" + c + "'. Try again.\n");
+                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    allValid = false;
+                    break;
+                }
+            }
+
+            if (allValid) break;
+        }
+        return cheeses;
+    }
+
+
+    // Waits for a specific time in milliseconds (like 2000 ms = 2 seconds).Then continues automatically.
+    public static void pauseBeforeContinuing(int milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            System.out.println("Pause interrupted.");
+        }
+
     }
 
     public static String askSize(Scanner scanner) {
@@ -132,4 +169,40 @@ public class UiHelper {
         return input.equalsIgnoreCase("Y");
     }
 
+    public static String[] getValidTopping(Scanner myScanner) {
+        String[] topping;
+        while (true) {
+            System.out.print("Enter your toppings - lettuce, peppers, onions, tomatoes, jalapeños, cucumbers, pickles, guacamole, mushrooms (use comma please) \n: ");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            pauseBeforeContinuing(1000);
+
+            String regularInput = myScanner.nextLine().trim().toLowerCase();
+            pauseBeforeContinuing(1000);
+
+
+            if (!regularInput.isEmpty()) {
+
+                topping = regularInput.split(",");
+                boolean allValid = true;
+
+                for (String t : topping) {
+                    String toppings = t.trim().toLowerCase();
+                    if (!toppings.matches("(?i)lettuce|peppers|onions|tomatoes|jalapeños|cucumbers|pickles|guacamole|mushrooms")) {
+                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                        System.out.println("Invalid Topping: '" + toppings + "'. Try again.\n");
+                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                        allValid = false;
+                        break;
+                    }
+                }
+                if (allValid) {
+                    return topping;
+                } else {
+                    System.out.println("Please enter at least one topping.\n");
+                }
+
+            }
+
+        }
+    }
 }
