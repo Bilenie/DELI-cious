@@ -94,7 +94,7 @@ public class UiHelper {
     }
 
     // Waits for a specific time in milliseconds (like 2000 ms = 2 seconds).Then continues automatically.
-    public void pauseBeforeContinuing(int milliseconds) {
+    public static void pauseBeforeContinuing(int milliseconds) {
         try {
             Thread.sleep(milliseconds);
         } catch (InterruptedException e) {
