@@ -132,14 +132,14 @@ public class Sandwich implements OrderItem{
       if(!meats.isEmpty()) {
           summary.append("Meats: ");
           for (Meat m : meats)
-              summary.append("meat type => " + m.getType() + ", " +m.getSize() + " inch size" +
-                      ",  $" + m.getPrice() + " price" + "Is Extra => "+ m.isExtra());
+              summary.append("meat type => " + m.getType() + ", size => " +m.getSize() + " inch " + " " + ", price =>" +
+                      ",$" + m.getPrice() + " "  + " , Is Extra => "+ m.isExtra());
       }
         // List all cheeses in the sandwich
         if(!cheeses.isEmpty()) {
             summary.append("\nCheeses: ");
             for (Cheese c : cheeses)
-                summary.append(c.getType() + ", " + "Is Extra => "+ " " + c.isExtra());
+                summary.append("cheese type => " + c.getType() + ", " + "Is Extra => " + " " + c.isExtra());
         }
 
         // List all regular  toppings
@@ -153,14 +153,14 @@ public class Sandwich implements OrderItem{
         if(!sauces.isEmpty()) {
             summary.append("\nSauces: ");
             for (Sauces s : sauces)
-                summary.append(s.getType() + ", ");
+                summary.append("Sauce => " + s.getType() + ", ");
         }
 
         // List all sides (free)
         if(!sides.isEmpty()) {
             summary.append("\nSides: ");
             for (Sides s : sides)
-                summary.append(s.getType() + ", ");
+                summary.append("Sides => " + s.getType() + ", ");
         }
 
         // get the price of the sandwich
