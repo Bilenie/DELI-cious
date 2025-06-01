@@ -82,73 +82,73 @@ public class CustomizeSandwich {
         System.out.println("Extra Meat: $0.50 $1.00 $1.50");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-    boolean validMeat = true;
-    while(validMeat) {
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("Would you like to add meat? (Y): or press Enter to skip: \n");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        boolean validMeat = true;
+        while (validMeat) {
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("Would you like to add meat? (Y): or press Enter to skip: \n");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-        String meatChoice = myScanner.nextLine().trim();
-        pauseBeforeContinuing(1000);
-        boolean addMeat = false;
-
-        if (meatChoice.equalsIgnoreCase("Y")) {
-            addMeat = true;
-
-            // ============== SIZE ===================
-           UiHelper.askSize();
-            // ============== TYPE ===================
-            String[] meats = getValid(myScanner);
-
-            // ============== EXTRA ===================
-            boolean isExtra;
-
-            System.out.println("********************************");
-            System.out.print("Do you want extra meat? (Y/N): \n");
-            System.out.println("********************************");
-
-            String meatExtra = myScanner.nextLine().trim();
+            String meatChoice = myScanner.nextLine().trim();
             pauseBeforeContinuing(1000);
+            boolean addMeat = false;
 
-            if (meatExtra.equalsIgnoreCase("Y")) {
-                isExtra = true;
+            if (meatChoice.equalsIgnoreCase("Y")) {
+                addMeat = true;
+
+                // ============== SIZE ===================
+                UiHelper.askSize(myScanner);
+                // ============== TYPE ===================
+                String[] meats = getValidMeat(myScanner);
+
+                // ============== EXTRA ===================
+                boolean isExtra;
+
+                System.out.println("********************************");
+                System.out.print("Do you want extra meat? (Y/N): \n");
+                System.out.println("********************************");
+
+                String meatExtra = myScanner.nextLine().trim();
+                pauseBeforeContinuing(1000);
+
+                if (meatExtra.equalsIgnoreCase("Y")) {
+                    isExtra = true;
+                } else {
+                    isExtra = false;
+                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    System.out.println("Skipping extra meat ...\n");
+                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                }
+
+
+                for (String meat : meats) {
+                    String meatType = meat.trim().toLowerCase();
+                    if (!meatType.isEmpty()) {
+                        Meat topping = new Meat(meatType, sizeChoice);
+                        topping.setExtra(isExtra);
+                        sandwich.addMeats(topping);
+                    }
+                }
+
             } else {
-                isExtra = false;
-                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                System.out.println("Skipping extra meat ...\n");
-                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            }
+                // ============== RETRY / SKIP ===================
+                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                System.out.println("You didn't choose your Meat. Would you like to try again? Press Y for Yes:\n");
+                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
+                String meatRetry = myScanner.nextLine().trim();
+                pauseBeforeContinuing(1000);
 
-            for (String meat : meats) {
-                String meatType = meat.trim().toLowerCase();
-                if (!meatType.isEmpty()) {
-                    Meat topping = new Meat(meatType, sizeChoice);
-                    topping.setExtra(isExtra);
-                    sandwich.addMeats(topping);
+                if (meatRetry.equalsIgnoreCase("y")) {
+                    continue;
+                } else {
+                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    System.out.println("Skipping meat ...\n");
+                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    pauseBeforeContinuing(1000);
                 }
             }
-
-        } else {
-            // ============== RETRY / SKIP ===================
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            System.out.println("You didn't choose your Meat. Would you like to try again? Press Y for Yes:\n");
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
-            String meatRetry = myScanner.nextLine().trim();
-            pauseBeforeContinuing(1000);
-
-            if (meatRetry.equalsIgnoreCase("y")) {
-                continue;
-            } else {
-                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                System.out.println("Skipping meat ...\n");
-                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                pauseBeforeContinuing(1000);
-            }
+            break;
         }
-        break;
-    }
 
         // ============== Confirm Sandwich ===================
         if (!confirmStep(myScanner, sandwich)) return null;
@@ -170,170 +170,116 @@ public class CustomizeSandwich {
         System.out.println("Extra Cheese: $0.30 $0.60 $0.90\n");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("Would you like to add cheese? (Y): or press Enter to skip:\n ");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-        String cheeseChoice = myScanner.nextLine().trim();
-        pauseBeforeContinuing(1000);
-        boolean addCheese = false;
+        boolean validCheese = true;
+        while (validCheese) {
 
-        if (cheeseChoice.equalsIgnoreCase("Y")) {
-            addCheese = true;
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("Would you like to add cheese? (Y): or press Enter to skip:\n ");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-            // ============== SIZE ===================
-            while (true) {
-                System.out.print("Enter the size you want (4/8/12): \n");
-                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            String cheeseChoice = myScanner.nextLine().trim();
+            pauseBeforeContinuing(1000);
+            boolean addCheese = false;
 
-                sizeChoice = myScanner.nextLine().trim();
+            if (cheeseChoice.equalsIgnoreCase("Y")) {
+                addCheese = true;
+
+                // ============== SIZE ===================
+                askSize(myScanner);
+                // ============== TYPE ===================
+                String[] cheeses = getValidCheese(myScanner);
+                // ============== EXTRA ===================
+                boolean isExtra;
+                System.out.println("********************************");
+                System.out.print("Do you want extra cheese? (Y/N): \n");
+                System.out.println("********************************");
+
+                String cheeseExtra = myScanner.nextLine().trim();
                 pauseBeforeContinuing(1000);
 
-                if (sizeChoice.matches("4|8|12")) break;
-
-                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                System.out.println("Invalid size. Try again.\n");
-                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            }
-
-            // ============== TYPE ===================
-            String[] cheeses;
-            while (true) {
-                System.out.print("Enter Cheese - American, Provolone, Cheddar, Swiss (comma-separated): \n");
-                String cheeseInput = myScanner.nextLine().trim();
-                pauseBeforeContinuing(1000);
-
-                cheeses = cheeseInput.split(",");
-                boolean allValid = true;
-
+                if (cheeseExtra.equalsIgnoreCase("Y")) {
+                    isExtra = true;
+                } else {
+                    isExtra = false;
+                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    System.out.println("Skipping extra cheese ...\n");
+                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                }
+                // Add cheese objects
                 for (String cheese : cheeses) {
-                    String c = cheese.trim().toLowerCase();
-                    if (!c.matches("(?i)american|provolone|cheddar|swiss")) {
-                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                        System.out.println("Invalid Cheese: '" + c + "'. Try again.\n");
-                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                        allValid = false;
-                        break;
+                    String cheeseType = cheese.trim().toLowerCase();
+                    if (!cheeseType.isEmpty()) {
+                        Cheese topping = new Cheese(cheeseType, sizeChoice);
+                        topping.setExtra(isExtra);
+                        sandwich.addCheese(topping);
                     }
                 }
 
-                if (allValid) break;
-            }
 
-            // ============== EXTRA ===================
-            boolean isExtra;
-            System.out.println("********************************");
-            System.out.print("Do you want extra cheese? (Y/N): \n");
-            System.out.println("********************************");
-
-            String cheeseExtra = myScanner.nextLine().trim();
-            pauseBeforeContinuing(1000);
-
-            if (cheeseExtra.equalsIgnoreCase("Y")) {
-                isExtra = true;
             } else {
-                isExtra = false;
-                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                System.out.println("Skipping extra cheese ...\n");
-                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            }
+                // ============== RETRY / SKIP ===================
+                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                System.out.println("You didn't choose your Cheese. Would you like to try again? Press Y for Yes:\n");
+                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
-            // Add cheese objects
-            for (String cheese : cheeses) {
-                String cheeseType = cheese.trim().toLowerCase();
-                if (!cheeseType.isEmpty()) {
-                    Cheese topping = new Cheese(cheeseType,sizeChoice);
-                    topping.setExtra(isExtra);
-                    sandwich.addCheese(topping);
+                String cheeseRetry = myScanner.nextLine().trim();
+                pauseBeforeContinuing(1000);
+
+                if (!cheeseRetry.equalsIgnoreCase("Y")) {
+                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    System.out.println("Skipping Cheese ...\n");
+                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    showLoadingSpinner(100);
+                } else {
+                    continue;
                 }
+
             }
-
-        } else {
-            // ============== RETRY / SKIP ===================
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            System.out.println("You didn't choose your Cheese. Would you like to try again? Press Y for Yes:\n");
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
-            String cheeseRetry = myScanner.nextLine().trim();
-            pauseBeforeContinuing(1000);
-
-            if (!cheeseRetry.equalsIgnoreCase("Y")) {
-                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                System.out.println("Skipping Cheese ...\n");
-                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                showLoadingSpinner(100);
-            } else {
-                getValid(myScanner);
-            }
+            break;
         }
-            // Confirm sandwich
-            if (!confirmStep(myScanner, sandwich)) return null;
-
+        // Confirm sandwich
+        if (!confirmStep(myScanner, sandwich)) return null;
 
 
         // ======================= REGULAR TOPPINGS (Included) =======================
-
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("Regular Toppings (Included, no extra charge):\n");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
-        showLoadingSpinner(1000);
-        String[] toppings;
-        boolean toppingsAdded = false;
         while (true) {
-            System.out.print("Enter your toppings - lettuce, peppers, onions, tomatoes, jalapeños, cucumbers, pickles, guacamole, mushrooms (use comma please) \n: ");
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            pauseBeforeContinuing(1000);
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("Regular Toppings (Included, no extra charge):\n");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-            String regularInput = myScanner.nextLine().trim().toLowerCase();
-            pauseBeforeContinuing(1000);
+            showLoadingSpinner(1000);
 
+            String[] toppings = getValidTopping(myScanner);
 
-            if (!regularInput.isEmpty()) {
-                toppings = regularInput.split(",");
-                boolean allValid = true;
-
-                for (String t : toppings) {
-                    String topping = t.trim().toLowerCase();
-                    if (!topping.matches("(?i)lettuce|peppers|onions|tomatoes|jalapeños|cucumbers|pickles|guacamole|mushrooms")) {
-                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                        System.out.println("Invalid Topping: '" + topping + "'. Try again.\n");
-                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                        allValid = false;
-                        break;
-                    }
-                }
-                if (allValid) {
-                    for (String t : toppings) {
-                        // Create a new instance of Topping using the user's valid input and add it to the sandwich
-                        Topping topping = new Topping(t.trim().toLowerCase());
-                        sandwich.addTopping(topping);
-                    }
-                    toppingsAdded = true;
-                    if (!confirmStep(myScanner, sandwich)) return null; // confirmation here
-                    break;
-                }
-
-            } else {
-                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                System.out.println("You didn't choose your free toppings. Would you like to try again?\nPress Y for Yes\n");
-                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
-                String toppingInput = myScanner.nextLine().trim().toLowerCase();
-                pauseBeforeContinuing(1000);
-
-
-                if (toppingInput.equalsIgnoreCase("Y")) {
-                    continue;//need checking
-                } else {
-                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    System.out.println("Skipping Topping...\n");
-                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    showLoadingSpinner(100);
-                    break;
-                }
+            for (String t : toppings) {
+                // Create a new instance of Topping using the user's valid input and add it to the sandwich
+                Topping topping = new Topping(t.trim().toLowerCase());
+                sandwich.addTopping(topping);
             }
+
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            System.out.println("You didn't choose your free toppings. Would you like to try again?\nPress Y for Yes\n");
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+            String toppingInput = myScanner.nextLine().trim().toLowerCase();
+            pauseBeforeContinuing(1000);
+
+
+            if (!toppingInput.equalsIgnoreCase("Y")) {
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                System.out.println("Skipping Topping...\n");
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                showLoadingSpinner(100);
+            } else {
+                continue;
+            }
+            break;
         }
+
+
+        // Confirm sandwich
+        if (!confirmStep(myScanner, sandwich)) return null;
 
 
         //============================ Sauces (Included) ============================
@@ -350,7 +296,6 @@ public class CustomizeSandwich {
         pauseBeforeContinuing(1000);
 
 
-
         if (!saucesInput.equalsIgnoreCase("Y")) {
 
             System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -359,7 +304,6 @@ public class CustomizeSandwich {
 
             String sauceRetry = myScanner.nextLine().trim().toLowerCase();
             pauseBeforeContinuing(1000);
-
 
 
             if (!sauceRetry.equalsIgnoreCase("Y")) {

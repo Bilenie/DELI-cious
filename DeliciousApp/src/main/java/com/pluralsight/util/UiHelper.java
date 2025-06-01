@@ -63,7 +63,7 @@ public class UiHelper {
         //if (!confirmStep(myScanner, sandwich)) return null;
     }
 
-    public static String[] getValid(Scanner myScanner) {
+    public static String[] getValidMeat(Scanner myScanner) {
         String[] meats;
         while (true) {
             showLoadingSpinner(1000);
@@ -93,7 +93,33 @@ public class UiHelper {
         return meats;
     }
 
-<<<<<<< HEAD
+    public static String[] getValidCheese(Scanner myScanner) {
+        String[] cheeses;
+        while (true) {
+            System.out.print("Enter Cheese - American, Provolone, Cheddar, Swiss (comma-separated): \n");
+            String cheeseInput = myScanner.nextLine().trim();
+            pauseBeforeContinuing(1000);
+
+            cheeses = cheeseInput.split(",");
+            boolean allValid = true;
+
+            for (String cheese : cheeses) {
+                String c = cheese.trim().toLowerCase();
+                if (!c.matches("(?i)american|provolone|cheddar|swiss")) {
+                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    System.out.println("Invalid Cheese: '" + c + "'. Try again.\n");
+                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    allValid = false;
+                    break;
+                }
+            }
+
+            if (allValid) break;
+        }
+        return cheeses;
+    }
+
+
     // Waits for a specific time in milliseconds (like 2000 ms = 2 seconds).Then continues automatically.
     public static void pauseBeforeContinuing(int milliseconds) {
         try {
@@ -103,7 +129,7 @@ public class UiHelper {
         }
 
     }
-=======
+
     public static String askSize(Scanner scanner) {
         String size;
         while (true) {
@@ -143,5 +169,40 @@ public class UiHelper {
         return input.equalsIgnoreCase("Y");
     }
 
->>>>>>> 4d49858daca91eaf88be450601cdab8572e05755
+    public static String[] getValidTopping(Scanner myScanner) {
+        String[] topping;
+        while (true) {
+            System.out.print("Enter your toppings - lettuce, peppers, onions, tomatoes, jalapeños, cucumbers, pickles, guacamole, mushrooms (use comma please) \n: ");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            pauseBeforeContinuing(1000);
+
+            String regularInput = myScanner.nextLine().trim().toLowerCase();
+            pauseBeforeContinuing(1000);
+
+
+            if (!regularInput.isEmpty()) {
+
+                topping = regularInput.split(",");
+                boolean allValid = true;
+
+                for (String t : topping) {
+                    String toppings = t.trim().toLowerCase();
+                    if (!toppings.matches("(?i)lettuce|peppers|onions|tomatoes|jalapeños|cucumbers|pickles|guacamole|mushrooms")) {
+                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                        System.out.println("Invalid Topping: '" + toppings + "'. Try again.\n");
+                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                        allValid = false;
+                        break;
+                    }
+                }
+                if (allValid) {
+                    return topping;
+                } else {
+                    System.out.println("Please enter at least one topping.\n");
+                }
+
+            }
+
+        }
+    }
 }
