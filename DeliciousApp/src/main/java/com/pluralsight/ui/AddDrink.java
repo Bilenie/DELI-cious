@@ -11,9 +11,9 @@ public class AddDrink {
         // Set up scanner to read user input from the console
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("\n========================================");
-        System.out.println("        Welcome to the Drink Menu ");
-        System.out.println("========================================\n");
+        System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
+        System.out.println("       Welcome to the Drink Menu    ");
+        System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
 
         // Ask the user if they want a drink
         showLoadingSpinner(1000);
