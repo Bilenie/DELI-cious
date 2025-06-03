@@ -9,9 +9,9 @@ public class AddChips {
     public Chips getChips() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("\n========================================");
-        System.out.println("        Welcome to the Chips Menu ");
-        System.out.println("========================================\n");
+        System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
+        System.out.println("      Welcome to the Chips Menu     ");
+        System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
 
         //Prompt user if they want to add chips.
         System.out.print("Would you like chips?\n (yes(Y)/no(N)): ");

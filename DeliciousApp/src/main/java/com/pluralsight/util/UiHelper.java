@@ -52,9 +52,9 @@ public class UiHelper {
         System.out.println("\n" + sandwich.getSummary());
 
         // Ask the user if they like what they see.
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        System.out.print("Is this correct? Press \"Y\" to continue or anything else to cancel! ");
-        System.out.println("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒.｡*✎*｡..｡*✒*｡..｡**｡.");
+        System.out.print("Is this correct? Press \"Y\" to continue or anything else to cancel! \n");
+        System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒.｡*✎*｡..｡*✒*｡..｡**｡.");
 
 
         // Use the Scanner to read what the user types.
@@ -65,13 +65,21 @@ public class UiHelper {
         } else {
             // They typed something else — cancel it
 
-            System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-            System.out.println("Order canceled.");
-            System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+            System.out.println("Are you sure? press Y for Yes!");
+            String userChoice = scanner.nextLine().trim();
 
-            return false;
+            if (userChoice.equalsIgnoreCase("Y")) {
+
+                System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
+                System.out.println("         Order canceled             ");
+                System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
+
+                return false;
+            } else {
+                return true;
+            }
+            //if (!confirmStep(myScanner, sandwich)) return null;
         }
-        //if (!confirmStep(myScanner, sandwich)) return null;
     }
 
     public static String[] getValidMeat(Scanner myScanner) {
@@ -79,7 +87,7 @@ public class UiHelper {
         while (true) {
             showLoadingSpinner(1000);
             System.out.print("Enter meats - steak, ham, salami, roast beef, chicken, bacon (use comma please):\n");
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
 
             String meatInput = myScanner.nextLine().trim().toLowerCase();
             showLoadingSpinner(1000);
@@ -90,9 +98,9 @@ public class UiHelper {
             for (String meat : meats) {
                 String m = meat.trim().toLowerCase();
                 if (!m.matches("(?i)steak|ham|salami|roast beef|chicken|bacon")) {
-                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                    System.out.println("Invalid meat: '" + m + "'. Try again.\n");
-                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*");
+                    System.out.println("  Invalid meat: '" + m + "'. Try again.\n"     );
+                    System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*");
                     allValid = false;
                     break;
                 }
@@ -117,9 +125,9 @@ public class UiHelper {
             for (String cheese : cheeses) {
                 String c = cheese.trim().toLowerCase();
                 if (!c.matches("(?i)american|provolone|cheddar|swiss")) {
-                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒.｡*✎*");
                     System.out.println("Invalid Cheese: '" + c + "'. Try again.\n");
-                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒.｡*✎*");
                     allValid = false;
                     break;
                 }
@@ -138,9 +146,9 @@ public class UiHelper {
             size = scanner.nextLine().trim();
             if (size.matches("4|8|12")) return size;
 
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒.｡*✎*");
             System.out.println("Invalid size. Try again.\n");
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒.｡*✎*");
         }
     }
 
@@ -148,7 +156,7 @@ public class UiHelper {
         String[] topping;
         while (true) {
             System.out.print("Enter your toppings - lettuce, peppers, onions, tomatoes, jalapeños, cucumbers, pickles, guacamole, mushrooms (use comma please) \n: ");
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
             pauseBeforeContinuing(1000);
 
             String regularInput = myScanner.nextLine().trim().toLowerCase();
@@ -163,9 +171,9 @@ public class UiHelper {
                 for (String t : topping) {
                     String toppings = t.trim().toLowerCase();
                     if (!toppings.matches("(?i)lettuce|peppers|onions|tomatoes|jalapeños|cucumbers|pickles|guacamole|mushrooms")) {
-                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                        System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒.｡*✎*");
                         System.out.println("Invalid Topping: '" + toppings + "'. Try again.\n");
-                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                        System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒.｡*✎*");
                         allValid = false;
                         break;
                     }

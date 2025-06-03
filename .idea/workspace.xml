@@ -6,7 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="18df9fba-89e7-491c-a9e4-41a07c9f3f03" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/SandwichShopApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/SandwichShopApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/models/Sandwich.java" beforeDir="false" afterPath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/models/Sandwich.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/ui/AddChips.java" beforeDir="false" afterPath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/ui/AddChips.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/ui/AddDrink.java" beforeDir="false" afterPath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/ui/AddDrink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/ui/CustomizeSandwich.java" beforeDir="false" afterPath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/ui/CustomizeSandwich.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/ui/HandleNewOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/ui/HandleNewOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/ui/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/ui/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/util/ReceiptWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/util/ReceiptWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/util/UiHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/DeliciousApp/src/main/java/com/pluralsight/util/UiHelper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +52,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "future__feature",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Student/Pluralsight/LearnToCode_Capstones/DELI-cious/DeliciousApp"
   }

@@ -7,6 +7,7 @@ import com.pluralsight.models.Sandwich;
 
 import java.util.Scanner;
 
+import static com.pluralsight.util.UiHelper.pauseBeforeContinuing;
 import static com.pluralsight.util.UiHelper.showLoadingSpinner;
 
 public class HandleNewOrder {
@@ -18,10 +19,10 @@ public class HandleNewOrder {
         boolean running = true;
         while (running) {
             while (running) {
-                System.out.println("==========================");
-                System.out.println("   DELI-cious Menu ");
-                System.out.println("==========================");
-                showLoadingSpinner(1000); // Show the user it's loading options
+                System.out.println(".｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡.");
+                System.out.println("           ♡ DELI-cious Menu ♡             ");
+                System.out.println(".｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡.");
+                pauseBeforeContinuing(1000); // Show the user it's loading options
 
                 // Display menu
                 System.out.println("""
@@ -33,7 +34,7 @@ public class HandleNewOrder {
                         """);
 
                 System.out.print("Choose an option (0-4):\n ");
-                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                 String userChoice = myScanner.nextLine().trim();
 
                 showLoadingSpinner(500);//visual delay
@@ -52,21 +53,21 @@ public class HandleNewOrder {
                             break;
                         }
                         // ========== Confirm before adding sandwich ==========
-                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                         System.out.println("Do you want to add this sandwich to your order? (Y): or press Enter to cancel: ");
-                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                         String confirmSandwich = myScanner.nextLine().trim();
                         if (!confirmSandwich.equalsIgnoreCase("Y")) {
-                            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                             System.out.println("Sandwich not added.\n");
-                            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                             break;
                         }
                         myOrder.addSandwich(sandwich);
                         showLoadingSpinner(1500);
-                        System.out.println("********************************");
+                        System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
                         System.out.println("Sandwich added!\n");
-                        System.out.println("********************************");
+                        System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
                         showLoadingSpinner(1500);
 
                         //System.out.println( myOrder.sandwiches.toString());
@@ -78,22 +79,22 @@ public class HandleNewOrder {
                             break;
                         }
                         // ========== Confirm before adding drink ==========
-                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                         System.out.println("Do you want to add this drink to your order? (Y): or press Enter to cancel:\n ");
-                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                         String confirmDrink = myScanner.nextLine().trim();
                         if (!confirmDrink.equalsIgnoreCase("Y")) {
-                            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                             System.out.println("Drink not added.\n");
-                            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                             break;
                         }
 
                         myOrder.addDrink(drink);
                         showLoadingSpinner(1500);
-                        System.out.println("********************************");
+                        System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
                         System.out.println("Drink added!\n");
-                        System.out.println("********************************");
+                        System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
                         showLoadingSpinner(1500);
 
 
@@ -106,21 +107,21 @@ public class HandleNewOrder {
                             break;
                         }
                         // ========== Confirm before adding chips ==========
-                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                         System.out.println("Do you want to add these chips to your order? (Y): or press Enter to cancel:\n ");
-                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                         String confirmChips = myScanner.nextLine().trim();
                         if (!confirmChips.equalsIgnoreCase("Y")) {
-                            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                             System.out.println("Chips not added.\n");
-                            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                             break;
                         }
                         myOrder.addChips(chips);
                         showLoadingSpinner(1500);
-                        System.out.println("********************************");
+                        System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
                         System.out.println("Chips added!\n");
-                        System.out.println("********************************");
+                        System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
                         showLoadingSpinner(1500);
 
                         //System.out.println( myOrder.chips.toString());
@@ -129,9 +130,9 @@ public class HandleNewOrder {
                         // Validate order before proceeding
                         if (myOrder.getSandwiches().isEmpty() && myOrder.getDrinks().isEmpty() && myOrder.getChips().isEmpty()) {
                             showLoadingSpinner(1500);
-                            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                            System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒");
                             System.out.println(" You must add at least one item before checkout.\n");
-                            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                            System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒");
                             showLoadingSpinner(1500);
 
                             break;
@@ -143,17 +144,17 @@ public class HandleNewOrder {
                         break;
                     case "0":
                         showLoadingSpinner(1600);
-                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                        System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒");
                         System.out.println("Order cancelled. See you next time!\n");
-                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                        System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒");
                         showLoadingSpinner(1600);
                         running = false;
                         break;
                     default:
                         showLoadingSpinner(1600);
-                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                        System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*");
                         System.out.println("Invalid option\n"); //how to save the item user giving me into one order object or class
-                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                        System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*");
                         showLoadingSpinner(1600);
 
                         //add the user input to the order class

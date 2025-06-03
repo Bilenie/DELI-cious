@@ -4,8 +4,7 @@ import com.pluralsight.models.Order;
 
 import java.util.Scanner;
 
-import static com.pluralsight.util.UiHelper.showLoadingSpinner;
-import static com.pluralsight.util.UiHelper.waitForEnter;
+import static com.pluralsight.util.UiHelper.*;
 
 public class UserInterface {
 
@@ -17,16 +16,16 @@ public class UserInterface {
         Order myOrder = new Order();
 
         while (!exit) {
-            System.out.println("\n===========================================");
-            System.out.println("    Welcome to DELI-cious Sandwich ! ");
-            System.out.println("===========================================\n");
+            System.out.println(".｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡.");
+            System.out.println("   ♡ Place for DELI-cious Sandwiches ♡   ");
+            System.out.println(".｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡.");
             waitForEnter();
             // Show loading spinner to simulate processing
-            showLoadingSpinner(1500);
+           pauseBeforeContinuing(1500);
 
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-");
             System.out.println("Please select an option:");
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-");
             System.out.println("  1) Start a New Order");
             System.out.println("  0) Exit the Shop\n");
 
@@ -39,31 +38,31 @@ public class UserInterface {
 
             switch (choice) {
                 case "1":
-                    System.out.println("#################################");
+                    System.out.println("♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆◆♢");
                     System.out.println("Great! Let’s start your order...");
-                    System.out.println("#################################");
-                    showLoadingSpinner(2000);
+                    System.out.println("♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆◆♢");
+                    pauseBeforeContinuing(2000);
                     HandleNewOrder newOrder = new HandleNewOrder();
                     newOrder.startOrder();
-                    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                    System.out.println("♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆◆♢♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢");
                     System.out.println("\nThank You for your Order! Returning to home screen...\n");
-                    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                    System.out.println("♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆◆♢♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢");
 
-                    showLoadingSpinner(1500);
+                    pauseBeforeContinuing(1500);
                     break;
 
                 case "0":
-                    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                    System.out.println("♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆◆♢♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆");
                     System.out.println("\nThanks You for visiting DELI-cious! Goodbye! ");
-                    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                    System.out.println("♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆◆♢♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆");
 
                     exit = true;
                     break;
 
                 default:
-                    System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                    System.out.println("♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆◆♢♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢");
                     System.out.println("\nOops! That’s not a valid option. Please try again.\n");
-                    System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                    System.out.println("♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆◆♢♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢");
 
                     // Loop will continue automatically for retry
             }

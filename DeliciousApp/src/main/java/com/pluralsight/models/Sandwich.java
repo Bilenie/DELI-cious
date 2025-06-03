@@ -111,70 +111,77 @@ public class Sandwich implements OrderItem{
     // getSummary method
 //   returns a string with sandwich details and total price
 
+
     public String getSummary() {
 
-        // Use StringBuilder for efficient string concatenation
-        StringBuilder summary = new StringBuilder();//word collecting basket
+        StringBuilder summary = new StringBuilder();
 
-        // Start with a header
-        System.out.println();
-        summary.append("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n").append(  "Sandwich Summary").append("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");//add to it by using append
+        // Cute top border
+        summary.append(".｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡.\n");
+        summary.append("｡                                               ｡\n");
+        summary.append("｡           ⚙ Sandwich Summary ✧               ｡\n");
+        summary.append("｡     .｡*♡*｡..｡*☆*.｡.*✧*.｡.*✧*.｡.*♡*｡.         ｡\n");
 
+        // Bread, size, toasted
+        summary.append(String.format("｡  Bread    => %s%-30s｡\n", breadType, ""));
+        summary.append(String.format("｡  Size     => %s%-30s｡\n", size, ""));
+        summary.append(String.format("｡  Toasted  => %s%-30s｡\n", (isToasted ? "Yes" : "No"), ""));
 
-
-        // Add bread type, size, and toast preference
-        summary.append("\nBread => " + breadType + "\n");
-        summary.append("Size => " + size + "\n");
-        summary.append("Toasted => " + (isToasted ? "Yes" : "No") + "\n");
-
-
-        // List all meats in the sandwich
-      if(!meats.isEmpty()) {
-          summary.append("Meats: ");
-          for (Meat m : meats)
-              summary.append("meat type => " + m.getType() + ", size => " +m.getSize() + " inch " + " " + ", price =>" +
-                      ",$" + m.getPrice() + " "  + " , Is Extra => "+ m.isExtra());
-      }
-        // List all cheeses in the sandwich
-        if(!cheeses.isEmpty()) {
-            summary.append("\nCheeses: ");
-            for (Cheese c : cheeses)
-                summary.append("cheese type => " + c.getType() + ", " + "Is Extra => " + " " + c.isExtra());
+        // Meats
+        if (!meats.isEmpty()) {
+            summary.append("｡  Meats:\n");
+            for (Meat m : meats) {
+                summary.append(String.format("｡    ➤ Type: %s, Size: %s inch, ฿%s, Extra: %s%-5s｡\n",
+                        m.getType(), m.getSize(), m.getPrice(), m.isExtra(), ""));
+            }
         }
 
-        // List all regular  toppings
-        if(!toppings.isEmpty()) {
-            summary.append("\nToppings: ");
-            for (Topping t : toppings)
+        // Cheeses
+        if (!cheeses.isEmpty()) {
+            summary.append("｡  Cheeses:\n");
+            for (Cheese c : cheeses) {
+                summary.append(String.format("｡    ➤ Type: %s, Extra: %s%-5s｡\n",
+                        c.getType(), c.isExtra(), ""));
+            }
+        }
+
+        // Toppings
+        if (!toppings.isEmpty()) {
+            summary.append("｡  Toppings: ");
+            for (Topping t : toppings) {
                 summary.append(t.getType() + ", ");
+            }
+            summary.append(String.format("%-18s｡\n", ""));
         }
 
-        // List all sauces (free)
-        if(!sauces.isEmpty()) {
-            summary.append("\nSauces: ");
-            for (Sauces s : sauces)
-                summary.append("Sauce => " + s.getType() + ", ");
+        // Sauces
+        if (!sauces.isEmpty()) {
+            summary.append("｡  Sauces: ");
+            for (Sauces s : sauces) {
+                summary.append(s.getType() + ", ");
+            }
+            summary.append(String.format("%-20s｡\n", ""));
         }
 
-        // List all sides (free)
-        if(!sides.isEmpty()) {
-            summary.append("\nSides: ");
-            for (Sides s : sides)
-                summary.append("Sides => " + s.getType() + ", ");
+        // Sides
+        if (!sides.isEmpty()) {
+            summary.append("｡  Sides: ");
+            for (Sides s : sides) {
+                summary.append(s.getType() + ", ");
+            }
+            summary.append(String.format("%-21s｡\n", ""));
         }
 
-        // get the price of the sandwich
-        double price = this.getPrice();
+        // Total Price
+        String formattedPrice = String.format("%.2f", this.getPrice());
+        summary.append("｡                                               ｡\n");
+        summary.append(String.format("｡  Total Price: ฿%s%-26s｡\n", formattedPrice, ""));
+        summary.append("｡                                               ｡\n");
+        summary.append(".｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡.\n");
 
-        // format the price to 2 decimal places
-        String formattedPrice = String.format("%.2f", price);
-
-        // add the total price to the summary text
-        summary.append("\nTotal Price: $" + formattedPrice);
-
-        return summary.toString();//turn all the words into one readable sentence by using toString() and return it.
-
+        return summary.toString();
     }
+
     @Override
     public String getDescription() {
         return getSummary();
