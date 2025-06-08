@@ -21,7 +21,7 @@ public class UserInterface {
             System.out.println(".｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡.");
             waitForEnter();
             // Show loading spinner to simulate processing
-           pauseBeforeContinuing(1500);
+            pauseBeforeContinuing(1500);
 
             System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-");
             System.out.println("Please select an option:");
@@ -44,16 +44,16 @@ public class UserInterface {
                     pauseBeforeContinuing(2000);
                     HandleNewOrder newOrder = new HandleNewOrder();
                     newOrder.startOrder();
-                    System.out.println("♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆◆♢♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢");
+                    System.out.println("｡･:*:･ﾟ★,｡･:*:･ﾟ☆･ﾟ:*:･｡★｡･ﾟ:*:･ﾟ☆･ﾟ｡･:*:･ﾟ★,｡･:*:･ﾟ☆･ﾟ:*:･｡★｡･ﾟ:*:･ﾟ☆･ﾟ");
                     System.out.println("\nThank You for your Order! Returning to home screen...\n");
-                    System.out.println("♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆◆♢♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢");
+                    System.out.println("｡･:*:･ﾟ★,｡･:*:･ﾟ☆･ﾟ:*:･｡★｡･ﾟ:*:･ﾟ☆･ﾟ｡･:*:･ﾟ★,｡･:*:･ﾟ☆･ﾟ:*:･｡★｡･ﾟ:*:･ﾟ☆･ﾟ\n");
 
                     pauseBeforeContinuing(1500);
                     break;
 
                 case "0":
                     System.out.println("♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆◆♢♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆");
-                    System.out.println("\nThanks You for visiting DELI-cious! Goodbye! ");
+                    System.out.println("\nThanks You for visiting BILENIE DELI-cious SANDWICH! Goodbye! \n");
                     System.out.println("♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆♢◆◆♢♢◆♢◆♢◆♢◆◆♢◆♢◆♢◆♢◆");
 
                     exit = true;

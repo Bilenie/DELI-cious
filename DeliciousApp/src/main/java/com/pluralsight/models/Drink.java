@@ -27,6 +27,7 @@ public class Drink implements OrderItem {
         this.size = size;
 
     }
+
     @Override
     public double getPrice() {
         switch (size.toLowerCase()) {
@@ -64,6 +65,7 @@ public class Drink implements OrderItem {
                 ", type='" + type + '\'' +
                 '}';
     }
+
     @Override
     public String getDescription() {
         return type + " (" + size + ")";

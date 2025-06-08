@@ -1,7 +1,6 @@
 package com.pluralsight.ui;
 
 import com.pluralsight.models.*;
-import com.pluralsight.util.UiHelper;
 
 import java.util.Scanner;
 
@@ -32,26 +31,13 @@ public class CustomizeSandwich {
             System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡.");
 
         }
+        // Ask size
 
-        String sizeChoice;
-        while (true) {
-            pauseBeforeContinuing(1000);
-            System.out.print("   Enter the size you want (4/8/12):\n ");
-            System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
-
-            sizeChoice = myScanner.nextLine().trim();
-            if (sizeChoice.matches("4|8|12")) break;
-
-            pauseBeforeContinuing(1000);
-            System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡.");
-            System.out.println("Invalid size. Try again.\n");
-            System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡.");
-
-        }
+        String sizeChoice = askSize(myScanner);
 
         // Ask if toasted
         boolean toasted = true;
-        while(toasted) {
+        while (toasted) {
 
             pauseBeforeContinuing(1000);
             System.out.print("Would you like it toasted? Enter Y to toast !\n ");
@@ -60,20 +46,20 @@ public class CustomizeSandwich {
             String toastedInput = myScanner.nextLine().trim();
             if (!toastedInput.equalsIgnoreCase("Y")) {
                 System.out.println("Are you sure? press Y for Yes!");
-                String  userChoice = myScanner.nextLine().trim();
+                String userChoice = myScanner.nextLine().trim();
 
-                if(userChoice.equalsIgnoreCase("Y")){
+                if (userChoice.equalsIgnoreCase("Y")) {
                     toasted = false;
                     pauseBeforeContinuing(1000);
                     System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                     System.out.println("Skipping toasted option...\n");
                     System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                     break;
-                }else {
+                } else {
                     continue;
                 }
 
-            }else{
+            } else {
                 pauseBeforeContinuing(1000);
                 System.out.println("You have Successfully chosen your bread!!!");
                 break;
@@ -93,7 +79,7 @@ public class CustomizeSandwich {
 
         pauseBeforeContinuing(1000);
 
-        System.out.println("- steak, ham, salami, roast beef, chicken, bacon");
+        System.out.println(" Steak, Ham, Salami, Roast Beef, Chicken, Bacon");
         System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦");
 
         pauseBeforeContinuing(1000);
@@ -108,7 +94,7 @@ public class CustomizeSandwich {
         boolean validMeat = true;
         while (validMeat) {
             System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦");
-            System.out.println("Would you like to add meat? (Y): or press Enter to skip: \n");
+            System.out.println("Would you like to add meat? (Y for YES): or press Enter to skip: \n");
             System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦");
 
             String meatChoice = myScanner.nextLine().trim();
@@ -119,7 +105,8 @@ public class CustomizeSandwich {
                 addMeat = true;
 
                 // ============== SIZE ===================
-                UiHelper.askSize(myScanner);
+                String meatSize = sizeChoice;
+
                 // ============== TYPE ===================
                 String[] meats = getValidMeat(myScanner);
 
@@ -209,7 +196,7 @@ public class CustomizeSandwich {
                 addCheese = true;
 
                 // ============== SIZE ===================
-                askSize(myScanner);
+                String cheeseSize = sizeChoice;
                 // ============== TYPE ===================
                 String[] cheeses = getValidCheese(myScanner);
                 // ============== EXTRA ===================
@@ -227,7 +214,7 @@ public class CustomizeSandwich {
                     System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                 }
                 // Add cheese objects
-               boolean isExtra = true;
+                boolean isExtra = true;
                 for (String cheese : cheeses) {
                     String cheeseType = cheese.trim().toLowerCase();
                     if (!cheeseType.isEmpty()) {
@@ -265,11 +252,11 @@ public class CustomizeSandwich {
 
         // ======================= REGULAR TOPPINGS (Included) =======================
 
-            System.out.println("✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦");
-            System.out.println("Regular Toppings (Included, no extra charge):");
-            System.out.println("✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦");
+        System.out.println("✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦");
+        System.out.println("Regular Toppings (Included, no extra charge):");
+        System.out.println("✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦");
 
-            showLoadingSpinner(1000);
+        pauseBeforeContinuing(1000);
 
         while (true) {
 
@@ -279,6 +266,10 @@ public class CustomizeSandwich {
             for (String t : toppings) {
                 Topping topping = new Topping(t.trim().toLowerCase());
                 sandwich.addTopping(topping);
+
+                pauseBeforeContinuing(1000);
+
+                System.out.println("Topping Successfully added!!!");
             }
 
             if (!confirmStep(myScanner, sandwich)) return null;
@@ -299,7 +290,7 @@ public class CustomizeSandwich {
                         System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                         System.out.println("Skipping Topping...\n");
                         System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
-                        showLoadingSpinner(100);
+                        pauseBeforeContinuing(1000);
                         break;
                     } else {
                         continue; // retry topping input
@@ -326,27 +317,23 @@ public class CustomizeSandwich {
             pauseBeforeContinuing(1000);
 
 
-            if (saucesInput.equalsIgnoreCase("Y")) {
+            if (!saucesInput.isEmpty()) {
                 // Validate only allowed sauces are added
-                if (!saucesInput.trim().isEmpty()) {
-                    String[] sauces = saucesInput.split(",");
-                    for (String s : sauces) {
-                        String sauce = s.trim().toLowerCase();
-                        if (!sauce.isEmpty()) {
-                            if (sauce.equals("mayo") ||
-                                    sauce.equals("mustard") ||
-                                    sauce.equals("ketchup") ||
-                                    sauce.equals("ranch") ||
-                                    sauce.equals("thousand island") ||
-                                    sauce.equals("vinaigrette")) {
+                String[] sauces = saucesInput.split(",");
+                for (String s : sauces) {
+                    String sauce = s.trim().toLowerCase();
+                    if (sauce.equals("mayo") ||
+                            sauce.equals("mustard") ||
+                            sauce.equals("ketchup") ||
+                            sauce.equals("ranch") ||
+                            sauce.equals("thousand island") ||
+                            sauce.equals("vinaigrette")) {
 
-                                sandwich.addSauce(new Sauces(sauce));
-                            } else {
-                                System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒");
-                                System.out.println("Invalid sauce: '" + sauce + "'. Skipping it.\n");
-                                System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒");
-                            }
-                        }
+                        sandwich.addSauce(new Sauces(sauce));
+                    } else {
+                        System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒");
+                        System.out.println("Invalid sauce: '" + sauce + "'. Skipping it.\n");
+                        System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒");
                     }
                 }
             } else {

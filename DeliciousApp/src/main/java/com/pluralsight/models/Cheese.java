@@ -18,7 +18,7 @@ public class Cheese {
         this.price = getPrice();
     }
 
-    public Cheese(String type,String size) {
+    public Cheese(String type, String size) {
         this.type = type;
         this.size = size;
     }
@@ -41,7 +41,7 @@ public class Cheese {
             System.out.println("Cheese size is null default base price => $0.00");
             return 0.0;
         }
-        switch(this.size) {
+        switch (this.size) {
             case "4":
                 return 1.00;
             case "8":
@@ -59,7 +59,7 @@ public class Cheese {
             System.out.println("Cheese size is null  default extra charge => $0.00");
             return 0.0;
         }
-        switch(this.size) {
+        switch (this.size) {
             case "4":
                 return 0.50;
             case "8":

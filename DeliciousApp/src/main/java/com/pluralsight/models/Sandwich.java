@@ -2,7 +2,7 @@ package com.pluralsight.models;
 
 import java.util.ArrayList;
 
-public class Sandwich implements OrderItem{
+public class Sandwich implements OrderItem {
 
     //Set attribute for sandwich class
     private String breadType;// store bread type (white, wheat, rye, wrap)
@@ -13,8 +13,8 @@ public class Sandwich implements OrderItem{
     private ArrayList<Topping> toppings;// store toppings includes meats, cheeses, and regular toppings
     private ArrayList<Sauces> sauces; // store sauces
     private ArrayList<Sides> sides;
-    private Chips chips;
-    private Drink drink;
+    private ArrayList<Chips> chips;
+    private ArrayList<Drink> drink;
 
     private double price;// keep track of total price
 
@@ -35,6 +35,8 @@ public class Sandwich implements OrderItem{
         this.sauces = new ArrayList<>();
         this.sides = new ArrayList<>();
 
+        this.chips = new ArrayList<>();
+        this.drink = new ArrayList<>();
     }
 // addMeat/Cheese/Topping/Sauce method:
 
@@ -73,9 +75,15 @@ public class Sandwich implements OrderItem{
 
         // Base sandwich price by size
         switch (size) {
-            case "4": totalPrice += 5.50; break;
-            case "8": totalPrice += 7.00; break;
-            case "12": totalPrice += 8.50; break;
+            case "4":
+                totalPrice += 5.50;
+                break;
+            case "8":
+                totalPrice += 7.00;
+                break;
+            case "12":
+                totalPrice += 8.50;
+                break;
         }
         // Add meats (base + extra included in getPrice)
         for (Meat meat : meats) {
@@ -91,11 +99,11 @@ public class Sandwich implements OrderItem{
 
 
         // Add chips (if selected)
-        if (chips != null) {
+        for (Chips chips : chips) {
             totalPrice += chips.getPrice(); // Always $1.50
         }
         // Add drink (if selected)
-        if (drink != null) {
+        for (Drink drink : drink) {
             totalPrice += drink.getPrice(); // $2.00–$3.00 based on size
         }
 
@@ -172,6 +180,22 @@ public class Sandwich implements OrderItem{
             summary.append(String.format("%-21s｡\n", ""));
         }
 
+        // If the customer ordered a drink, add it to the receipt and update total
+        if (!drink.isEmpty()) {
+            summary.append("｡  Drinks:\n");
+            for (Drink d : drink) {
+                summary.append(String.format("｡    ➤ %s (%s) ฿%.2f%-10s｡\n",
+                        d.getType(), d.getSize(), d.getPrice(), ""));
+            }
+        }
+        // If the customer ordered chips, add to the receipt and update total
+        if (!chips.isEmpty()) {
+            summary.append("｡  Chips:\n");
+            for (Chips c : chips) {
+                summary.append(String.format("｡    ➤ %s  ฿%.2f%-20s｡\n",
+                        c.getFlavor(), c.getPrice(), ""));
+            }
+        }
         // Total Price
         String formattedPrice = String.format("%.2f", this.getPrice());
         summary.append("｡                                               ｡\n");

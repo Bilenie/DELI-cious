@@ -40,15 +40,20 @@ public class CheckOutAndPrint {
         // Add the total price of the entire order to the receipt
         receipt.append("Total Order Price: $").append(String.format("%.2f", total));
 
-        // Print the receipt to the console
+        //  Print final receipt
+        System.out.println("｡･:*:･ﾟ★,｡･:*:･ﾟ☆ 𝒪𝓇𝒹𝑒𝓇 𝒮𝓊𝓂𝓂𝒶𝓇𝓎 ☆･ﾟ:*:･｡,★･ﾟ:*:･｡");
         System.out.println(receipt);
-        System.out.println("Is this order correct? : Y");
+
+        //  Final confirmation (for the whole order)
+        System.out.println("\n.｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒.｡*✎*｡..｡*✒*｡..｡**｡.");
+        System.out.print("Is this whole order correct? Press \"Y\" to confirm or anything else to cancel! \n");
         String userChoice = myScanner.nextLine();
+
         if (userChoice.equalsIgnoreCase("y")) {
-            // Save using the new ReceiptWriter utility class
+            // Save full receipt to file
             ReceiptWriter.saveReceiptToFile(receipt.toString());
         } else {
-            System.out.println(" Order Canceled");
+            System.out.println("✧✦✧✦✧✦✧✦✦✧✦ Order canceled ✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
         }
 
     }

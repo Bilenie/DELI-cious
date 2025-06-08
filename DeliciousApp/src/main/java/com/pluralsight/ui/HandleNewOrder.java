@@ -37,7 +37,8 @@ public class HandleNewOrder {
                 System.out.println("◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦-◦◦-◦-◦-◦-◦-◦-");
                 String userChoice = myScanner.nextLine().trim();
 
-                showLoadingSpinner(500);//visual delay
+                pauseBeforeContinuing(1000);
+                ;//visual delay
 
                 // Validate input: must be a number between 0 and 4
                 while (!userChoice.matches("[0-4]")) {
@@ -64,11 +65,13 @@ public class HandleNewOrder {
                             break;
                         }
                         myOrder.addSandwich(sandwich);
-                        showLoadingSpinner(1500);
+                        pauseBeforeContinuing(1000);
+                        ;
                         System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
                         System.out.println("Sandwich added!\n");
                         System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
-                        showLoadingSpinner(1500);
+                        pauseBeforeContinuing(1000);
+                        ;
 
                         //System.out.println( myOrder.sandwiches.toString());
                         break;
@@ -91,11 +94,13 @@ public class HandleNewOrder {
                         }
 
                         myOrder.addDrink(drink);
-                        showLoadingSpinner(1500);
+                        pauseBeforeContinuing(1000);
+                        ;
                         System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
                         System.out.println("Drink added!\n");
                         System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
-                        showLoadingSpinner(1500);
+                        pauseBeforeContinuing(1000);
+                        ;
 
 
                         //System.out.println( myOrder.drinks.toString());
@@ -118,22 +123,26 @@ public class HandleNewOrder {
                             break;
                         }
                         myOrder.addChips(chips);
-                        showLoadingSpinner(1500);
+                        pauseBeforeContinuing(1000);
+                        ;
                         System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
                         System.out.println("Chips added!\n");
                         System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
-                        showLoadingSpinner(1500);
+                        pauseBeforeContinuing(1000);
+                        ;
 
                         //System.out.println( myOrder.chips.toString());
                         break;
                     case "4":
                         // Validate order before proceeding
                         if (myOrder.getSandwiches().isEmpty() && myOrder.getDrinks().isEmpty() && myOrder.getChips().isEmpty()) {
-                            showLoadingSpinner(1500);
+                            pauseBeforeContinuing(1000);
+                            ;
                             System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒");
                             System.out.println(" You must add at least one item before checkout.\n");
                             System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒");
-                            showLoadingSpinner(1500);
+                            pauseBeforeContinuing(1000);
+                            ;
 
                             break;
                         }
@@ -143,19 +152,23 @@ public class HandleNewOrder {
                         running = false;
                         break;
                     case "0":
-                        showLoadingSpinner(1600);
+                        pauseBeforeContinuing(1000);
+                        ;
                         System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒");
                         System.out.println("Order cancelled. See you next time!\n");
                         System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒");
-                        showLoadingSpinner(1600);
+                        pauseBeforeContinuing(1000);
+                        ;
                         running = false;
                         break;
                     default:
-                        showLoadingSpinner(1600);
+                        pauseBeforeContinuing(1000);
+                        ;
                         System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*");
                         System.out.println("Invalid option\n"); //how to save the item user giving me into one order object or class
                         System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*");
-                        showLoadingSpinner(1600);
+                        pauseBeforeContinuing(1000);
+                        ;
 
                         //add the user input to the order class
                 }

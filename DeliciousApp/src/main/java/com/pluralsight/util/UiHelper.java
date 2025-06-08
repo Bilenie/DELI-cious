@@ -47,7 +47,6 @@ public class UiHelper {
     }
 
     public static boolean confirmStep(Scanner scanner, Sandwich sandwich) {
-
         // Print the current summary of the sandwich (bread, meat, cheese, etc.)
         System.out.println("\n" + sandwich.getSummary());
 
@@ -56,30 +55,32 @@ public class UiHelper {
         System.out.print("Is this correct? Press \"Y\" to continue or anything else to cancel! \n");
         System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒.｡*✎*｡..｡*✒*｡..｡**｡.");
 
-
         // Use the Scanner to read what the user types.
         String input = scanner.nextLine();
+
         // Check if the user typed "Y" (yes)
         if (input.equalsIgnoreCase("Y")) {
             return true; // They confirmed, continue with the order
         } else {
-            // They typed something else — cancel it
-
-            System.out.println("Are you sure? press Y for Yes!");
+            // They typed something else — ask for confirmation to cancel
+            System.out.println("Do you want to cancel your order? Press Y to cancel!");
             String userChoice = scanner.nextLine().trim();
 
             if (userChoice.equalsIgnoreCase("Y")) {
-
                 System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
                 System.out.println("         Order canceled             ");
                 System.out.println("✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧");
-
-                return false;
+                return false; // Cancel the order
             } else {
-                return true;
+                return true; // Don't cancel, continue with the order
             }
-            //if (!confirmStep(myScanner, sandwich)) return null;
         }
+    }
+
+    public static boolean confirmYesNo(Scanner scanner, String message) {
+        System.out.println(message + " (Y/N): ");
+        String input = scanner.nextLine().trim();
+        return input.equalsIgnoreCase("Y");
     }
 
     public static String[] getValidMeat(Scanner myScanner) {
@@ -97,9 +98,10 @@ public class UiHelper {
 
             for (String meat : meats) {
                 String m = meat.trim().toLowerCase();
-                if (!m.matches("(?i)steak|ham|salami|roast beef|chicken|bacon")) {
+                // FIXED: Added word boundaries to prevent partial matches
+                if (!m.matches("(?i)\\b(steak|ham|salami|roast beef|chicken|bacon)\\b")) {
                     System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*");
-                    System.out.println("  Invalid meat: '" + m + "'. Try again.\n"     );
+                    System.out.println("  Invalid meat: '" + m + "'. Try again.\n");
                     System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*");
                     allValid = false;
                     break;
@@ -111,6 +113,7 @@ public class UiHelper {
 
         return meats;
     }
+
 
     public static String[] getValidCheese(Scanner myScanner) {
         String[] cheeses;
@@ -124,7 +127,8 @@ public class UiHelper {
 
             for (String cheese : cheeses) {
                 String c = cheese.trim().toLowerCase();
-                if (!c.matches("(?i)american|provolone|cheddar|swiss")) {
+                // FIXED: Added word boundaries to prevent partial matches
+                if (!c.matches("(?i)\\b(american|provolone|cheddar|swiss)\\b")) {
                     System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒.｡*✎*");
                     System.out.println("Invalid Cheese: '" + c + "'. Try again.\n");
                     System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒.｡*✎*");

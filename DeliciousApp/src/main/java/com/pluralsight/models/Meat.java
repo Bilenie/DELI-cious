@@ -15,7 +15,7 @@ public class Meat {
         this.type = type;
     }
 
-    public Meat(String type,String size) {
+    public Meat(String type, String size) {
         this.type = type;
         this.size = size;
     }
@@ -48,10 +48,14 @@ public class Meat {
 
         // Base price depends on size
         switch (this.size) {
-            case "4": return 1.00;
-            case "8": return 2.00;
-            case "12": return 3.00;
-            default: return 0.0;
+            case "4":
+                return 1.00;
+            case "8":
+                return 2.00;
+            case "12":
+                return 3.00;
+            default:
+                return 0.0;
         }
     }
 
@@ -71,24 +75,24 @@ public class Meat {
     }
 
 
-public boolean isExtra() {
-    return isExtra;
-}
+    public boolean isExtra() {
+        return isExtra;
+    }
 
-public void setExtra(boolean extra) {
-    isExtra = extra;
-    // this.price = calculateBasePrice(this.size, extra); // recalc price if extra changes
-}
+    public void setExtra(boolean extra) {
+        isExtra = extra;
+        // this.price = calculateBasePrice(this.size, extra); // recalc price if extra changes
+    }
 
-@Override
-public String toString() {
-    return "Meat{" +
-            "size='" + size + '\'' +
-            " is extra : " + isExtra +
-            ", price=" + getPrice() +
-            ", type='" + type + '\'' +
-            '}';
-}
+    @Override
+    public String toString() {
+        return "Meat{" +
+                "size='" + size + '\'' +
+                " is extra : " + isExtra +
+                ", price=" + getPrice() +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }
 
 //String.format("%-12s | %-12s | %-18s | %-18s | %18.2f, %s", date.toString(), time.toString(), description, vendor, amount, type);

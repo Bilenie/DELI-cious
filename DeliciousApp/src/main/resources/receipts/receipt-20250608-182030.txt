@@ -1,0 +1,3 @@
+Drink: coke (s)
+Chips: lays
+Total Order Price: $3.50

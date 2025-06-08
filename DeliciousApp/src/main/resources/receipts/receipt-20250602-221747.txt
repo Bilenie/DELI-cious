@@ -1,0 +1,3 @@
+Drink: coke (s)
+Chips: baked
+Total Order Price: $3.50

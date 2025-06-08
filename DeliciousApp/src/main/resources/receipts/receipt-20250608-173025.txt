@@ -1,0 +1,22 @@
+.｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡.
+｡                                               ｡
+｡           ⚙ Sandwich Summary ✧               ｡
+｡     .｡*♡*｡..｡*☆*.｡.*✧*.｡.*✧*.｡.*♡*｡.         ｡
+｡  Bread    => white                              ｡
+｡  Size     => 4                              ｡
+｡  Toasted  => Yes                              ｡
+｡  Meats:
+｡    ➤ Type: steak, Size: 4 inch, ฿1.0, Extra: false     ｡
+｡  Cheeses:
+｡    ➤ Type: american, Extra: true     ｡
+｡  Toppings: lettuce, peppers,                   ｡
+｡  Sauces: mayo,                     ｡
+｡  Sides: sauce,                      ｡
+｡                                               ｡
+｡  Total Price: ฿8.00                          ｡
+｡                                               ｡
+.｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡.
+
+Drink: coke (small)
+Chips: baked 
+Total Order Price: $11.50

@@ -1,0 +1,18 @@
+.｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡.
+｡                                               ｡
+｡           ⚙ Sandwich Summary ✧               ｡
+｡     .｡*♡*｡..｡*☆*.｡.*✧*.｡.*✧*.｡.*♡*｡.         ｡
+｡  Bread    => white                              ｡
+｡  Size     => 4                              ｡
+｡  Toasted  => Yes                              ｡
+｡  Toppings: lettuce,                   ｡
+｡  Sauces: mayo,                     ｡
+｡  Sides: au jus,                      ｡
+｡                                               ｡
+｡  Total Price: ฿5.50                          ｡
+｡                                               ｡
+.｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡.
+
+Drink: coke (s)
+Chips: baked
+Total Order Price: $9.00
