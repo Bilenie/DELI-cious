@@ -301,8 +301,6 @@ public class CustomizeSandwich {
             break;
         }
 
-// Confirm sandwich
-        if (!confirmStep(myScanner, sandwich)) return null;
         //============================ Sauces (Included) ============================
         System.out.println("✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✦✧✦✧");
         System.out.println(" Sauces (Included): Mayo, Mustard, Ketchup, Ranch, Thousand Island, Vinaigrette\n");
@@ -316,10 +314,11 @@ public class CustomizeSandwich {
             String saucesInput = myScanner.nextLine().trim().toLowerCase();
             pauseBeforeContinuing(1000);
 
-
-            if (!saucesInput.isEmpty()) {
+              if (!saucesInput.isEmpty()) {
                 // Validate only allowed sauces are added
                 String[] sauces = saucesInput.split(",");
+                boolean invalidFound = false;  // Flag to detect invalid sauce
+
                 for (String s : sauces) {
                     String sauce = s.trim().toLowerCase();
                     if (sauce.equals("mayo") ||
@@ -332,12 +331,17 @@ public class CustomizeSandwich {
                         sandwich.addSauce(new Sauces(sauce));
                     } else {
                         System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒");
-                        System.out.println("Invalid sauce: '" + sauce + "'. Skipping it.\n");
+                        System.out.println("Invalid sauce: '" + sauce + "'. Try again.\n");
                         System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒");
+                        invalidFound = true;
+                        break;  // Stop checking more sauces because one is invalid
                     }
                 }
+                  if (invalidFound) {
+                      continue; // Ask again
+                  }
             } else {
-
+                  // User pressed Enter to skip, now ask "Are you sure?"
                 System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒.｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..");
                 System.out.println("You didn't choose your free Sauces. Would you like to try again? Press Y for Yes:\n");
                 System.out.println(".｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..｡*✒*｡..｡*✎*｡..｡*✒.｡*✎*｡..｡*✒*｡..｡**｡..｡*✍*｡..｡**｡..");
@@ -352,10 +356,11 @@ public class CustomizeSandwich {
                     pauseBeforeContinuing(1000);
                     break;
                 } else {
+                    // User said No, so ask sauces again by continuing loop
                     continue;
                 }
             }
-            break;
+            break; // If we reach here, sauces were entered correctly, break loop
         }
         if (!confirmStep(myScanner, sandwich)) return null;
 

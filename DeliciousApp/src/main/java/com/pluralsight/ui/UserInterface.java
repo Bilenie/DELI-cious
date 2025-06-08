@@ -13,7 +13,7 @@ public class UserInterface {
     public void homeScreen() {
 
         boolean exit = false;
-        Order myOrder = new Order();
+
 
         while (!exit) {
             System.out.println(".｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡..｡*♡*｡.");
